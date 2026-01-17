@@ -1,0 +1,8 @@
+uv run python homework_taxi_data.py \
+  --pg-user=root \
+  --pg-password=root \
+  --pg-host=localhost \
+  --pg-port=5432 \
+  --pg-db=ny_taxi \
+  --target-table=green_taxi_data \
+  --target-table-zone=taxi_zone_data \

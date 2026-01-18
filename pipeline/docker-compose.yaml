@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:16
-    container_name: homeworkdatabase-postgres
+    container_name: postgres
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
@@ -12,10 +12,10 @@ services:
       - "5433:5432"
   pgadmin:
     image: dpage/pgadmin4
-    container_name: homeworkdatabase-pgadmin
+    container_name: homeworkdatabase
     environment:
-      PGADMIN_DEFAULT_EMAIL:admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD:root
+      PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD=root
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     ports:

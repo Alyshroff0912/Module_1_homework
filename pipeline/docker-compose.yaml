@@ -6,8 +6,8 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
       POSTGRES_DB: ny_taxi
-      volumes:
-      - ny_taxi_postgres_data:/var/lib/postgresql/data  
+      #volumes:
+      #- ny_taxi_postgres_data:/var/lib/postgresql/data  
     ports:
       - "5433:5432"
   pgadmin:

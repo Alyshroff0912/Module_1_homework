@@ -10,12 +10,12 @@ uv run python homework_taxi_data.py \
   --pg-user=root \
   --pg-password=root \
   --pg-host=localhost \
-  --pg-port=5433 \
+  --pg-port=5434 \
   --pg-db=ny_taxi \
   --target-table=green_taxi_data \
   --target-table-zone=taxi_zone_data \
 
-docker run -d \
+docker run -it \
   --name postgres \
   -e POSTGRES_USER=root \
   -e POSTGRES_PASSWORD=root \
@@ -34,5 +34,5 @@ docker run -it \
   --name pgadmin \
   dpage/pgadmin4
 
-docker run -it --rm --network=homework-network homework_taxi:v001 --pg-user=root --pg-password=root --pg-host=homeworkdatabase --pg-port=5432 --pg-db=ny_taxi --target-table=green_taxi_data --target-table-zone=taxi_zone_data
+docker run -it --network=homework-network homework_taxi:v001 --pg-user=root --pg-password=root --pg-host=homeworkdatabase --pg-port=5432 --pg-db=ny_taxi --target-table=green_taxi_data --target-table-zone=taxi_zone_data
 

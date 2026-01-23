@@ -33,12 +33,13 @@ ORDER BY total_amount_sum DESC
 
 SELECT 
     dz."Zone" AS dropoff_zone,
-    dz."Borough" AS dropoff_borough,
-    MAX(t."tip_amount") AS largest_tip
+    MAX(t.tip_amount) AS largest_tip
 FROM green_taxi_data t
-INNER JOIN taxi_zone_data dz ON t."DOLocationID" = dz."LocationID"
+JOIN taxi_zone_data pz ON t."PULocationID" = pz."LocationID"
+JOIN taxi_zone_data dz ON t."DOLocationID" = dz."LocationID"
 WHERE pz."Zone" = 'East Harlem North'
-  AND t."lpep_pickup_datetime" >= '2025-11-01'
-  AND t."lpep_pickup_datetime" < '2025-12-01'
-GROUP BY dz."Zone", dz."Borough", dz."LocationID"
+  AND t.lpep_pickup_datetime >= '2025-11-01'
+  AND t.lpep_pickup_datetime < '2025-12-01'
+GROUP BY dz."Zone", dz."LocationID"
 ORDER BY largest_tip DESC
+
